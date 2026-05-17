@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Game</title>
+</head>
+<body style="background-color: gray">
+    <form id="madlibform">
+
+        <label for="noun1">noun</label>
+        <input type="text" placeholder="noun" id="noun1" required><br>
+
+        <label for="noun2">noun</label>
+        <input type="text" placeholder="noun" id="noun2" required><br>
+
+        <label for="adjective">adjective</label>
+        <input type="text" placeholder="adjective" id="adjective" required><br>
+
+        <label for="verb">verb</label>
+        <input type="text" placeholder="verb" id="verb" required><br>
+
+        <button type="submit" onclick="generateStory()">generate</button>
+    </form>
+    <p id="display-story"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- 
+1. The Dynamic Story Generator (Mad Libs)
+What it does: An HTML page with 4 or 5 blank text boxes 
+(e.g., "Noun", "Verb", "Adjective"). When the user clicks a 
+"Generate" button, JavaScript grabs those words, plugs them 
+into a hidden template story, and reveals the finished story 
+on the page.
+
+The "Pre-Backend" Concept: Input Processing. This teaches you
+how to capture user data, store it in variables, combine strings, 
+and send a specific output back to the screen.
+-->
