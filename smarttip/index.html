@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tip & Split Calculator</title>
+</head>
+<body>
+    <form>
+        <label for="food-cost">food cost</label>
+        <input type="number" id="food-cost">
+        <label for="num-people">number of people</label>
+        <input type="number" id="num-people">
+        <select id="tax-amount" name="tax-amount">
+            <option value="" disabled selected>Select an option</option>
+            <option value="ten">10%</option>
+            <option value="fifteen">15%</option>
+            <option value="twenty">20%</option>
+            <option value="zero">0%</option>
+        </select>
+        <input type="submit" id="submit-btn">
+    </form>
+    <p id="amount-person"></p>
+    <script src="script.js"></script>
+</body>
+</html>
