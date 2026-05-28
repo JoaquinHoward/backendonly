@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie toggle</title>
+</head>
+<body>
+    <button id = "toggle-btn">toggle</button>
+    <script>
+        const toggle_btn = document.getElementById("toggle-btn");
+
+        function set_cookie(color_mode){
+            const date = new Date();
+            date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+            document.cookie = "theme=" + color_mode + ";expires=" + date.toUTCString() + ";path=/;SameSite=Strict";
+        }
+
+        function get_cookie(){
+            const cookies = document.cookie.split(';');
+            for(let i = 0; i < cookies.length; i++){
+                let pair = cookies[i].trim();
+                if(pair.indexOf("theme=")===0){
+                    return pair.substring(6);
+                }
+            }
+            return null;
+        }
+
+        let saved_setting = get_cookie();
+        if(saved_setting === "dark"){
+            document.body.style.backgroundColor = "#121212";
+        }else{
+            document.body.style.backgroundColor = "#ffffff";
+        }
+
+        
+        toggle_btn.addEventListener("click", function(){
+            saved_setting = get_cookie();
+            if(saved_setting === "dark"){
+                document.body.style.backgroundColor = "#ffffff";
+                set_cookie("light");
+            }else{
+                document.body.style.backgroundColor = "#121212";
+                set_cookie("dark");
+            }
+        });
+
+        
+        
+
+    </script>
+</body>
+</html>
