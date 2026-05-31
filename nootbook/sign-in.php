@@ -1,4 +1,5 @@
 <?php
+session_start();
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $username = $_POST["user-name"];
         $password = $_POST["password"];
@@ -17,7 +18,7 @@
             //password_verify('input password', 'database password');
             //session_start();
             if(password_verify($password, $user['password_hash'])){
-                session_start();
+                
                 $_SESSION['user_name'] = $username;
                 header("Location: dashboard.php");
                 exit();
