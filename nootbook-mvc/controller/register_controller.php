@@ -2,8 +2,8 @@
 session_start();
     require("../model/connect.php");
     require("../model/UserModel.php");
-    if(isset($_SESSION["user_name"])){
-        header("Location: dashboard_controller.php");
+    if(isset($_SESSION["id"])){
+        header("Location: task_controller.php");
         exit();
     }else if($_SERVER["REQUEST_METHOD"] === "POST"){
         $errors = [];
@@ -21,7 +21,10 @@ session_start();
             $user_model = new UserModel($pdo);
             $isInserted = $user_model->register_user($_POST["real_name"], $_POST["user_name"], $hashed_password);
             if($isInserted){
-                header("Location: dashboard_controller.php");
+                $_SESSION["id"] = (int)$pdo->lastInsertId();
+                $_SESSION["real_name"] = $_POST["real_name"];
+                $_SESSION["user_name"] = $_POST["user_name"];
+                header("Location: task_controller.php");
                 exit();
             }else{
                 $errors[] = "Real name or username is not unique.";

@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        if(empty($errors)){
+        if(!empty($errors)){
             foreach($errors as $error){
                 echo $error;
             }

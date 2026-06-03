@@ -29,7 +29,7 @@
                 #command blueprint
                 $sql = "SELECT * FROM register WHERE user_name = :user_name";
                 #preparation
-                $sql->$this->pdo->prepare($sql);
+                $sql = $this->pdo->prepare($sql);
                 #execution
                 $sql->execute(["user_name"=>$user_name]);
                 #fetch
@@ -41,6 +41,14 @@
                     return false;
                 }
                 throw $event;
+            }
+        }
+
+        public function delete_task_by_id(int $task_id){
+            try{
+                
+            }catch(PDOException){
+
             }
         }
 
