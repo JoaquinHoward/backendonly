@@ -28,5 +28,6 @@ session_start();
             }
         }
     }
+
     require_once("../view/signin_view.php");
 ?>

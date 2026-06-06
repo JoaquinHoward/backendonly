@@ -1,0 +1,1 @@
+<h1>Welcome the the dashboard, {{ $user_name }}</h1>

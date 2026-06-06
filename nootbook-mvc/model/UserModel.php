@@ -43,16 +43,5 @@
                 throw $event;
             }
         }
-
-        public function delete_task_by_id(int $task_id){
-            try{
-                
-            }catch(PDOException){
-
-            }
-        }
-
-
-
     }
 ?>

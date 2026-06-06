@@ -1,7 +1,7 @@
 <?php
 session_start();
     if(!isset($_SESSION["id"])){
-        header("Location: signin_controller.php");
+        header("Location: signinout_controller.php");
         exit();
     }
     require_once("../model/connect.php");
@@ -18,6 +18,16 @@ session_start();
                 exit();
             }else{
                 $errors[] = "Failed to create task.";
+            }
+        }
+
+        if($_POST["action"] === "done"){
+            $is_deleted = $new_task->delete_task_by_task_id($_POST["task_id"]);
+            if($is_deleted){
+                header("Location: task_controller.php");
+                exit();
+            }else{
+                $errors[] = "Error occured, failed to remove task.";
             }
         }
     }
